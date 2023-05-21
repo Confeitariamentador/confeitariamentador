@@ -1,30 +1,30 @@
 const bd = require("./models/Database")
 
 class DAO{
-    static create(table, produto, callback){
+    static create(table, value, callback){
         const query = "INSERT INTO ? SET ?";
-        db.query(query, [table, produto], (err, result) -> {
+        db.query(query, [table, value], (err, result) -> {
             if (err) throw err;
             callback(result);
         });
     }
     
-    static read(attribute, table, codigo,callback,id ){
-        bd.query("SELECT ? FROM ? WHERE codigo = ?", [attribute, table, codigo]).then((result) => {
+    static read(selecAttrib, table, value, whereAttrib, callback){
+        bd.query("SELECT ? FROM ? WHERE ? = ?", [selecAttrib, table, whereAttrib, value]).then((result) => {
             callback(result)
         })
     }
 
-    static update(table, id, cliente, callback){
-        const query = "UPDATE ? SET ? WHERE id = ?";
-        db.query(query, [table, cliente, id], function(err, result) {
+    static update(table, setValue, attrib, whereValue, callback){
+        const query = "UPDATE ? SET ? WHERE ? = ?";
+        db.query(query, [table, setValue, attrib, whereValue], function(err, result) {
             if (err) throw err;
             callback(result);
         });
     }
 
-    static delete(table, codigo, callback){
-        bd.query("DELETE FROM ? WHERE codigo = ?", [codigo]).then((result) => {
+    static delete(table, attrib, value, callback){
+        bd.query("DELETE FROM ? WHERE ? = ?", [table, attrib, value]).then((result) => {
             callback(result)
         })
     }
