@@ -9,8 +9,12 @@ class DAO{
 
     }
 
-    static update(){
-
+    static update(id, cliente, callback){
+        const query = "UPDATE clientes SET ? WHERE id = ?";
+        db.query(query, [cliente, id], function(err, result) {
+            if (err) throw err;
+            callback(result);
+        });
     }
 
     static delete(){
