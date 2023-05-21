@@ -5,7 +5,17 @@ class DAO{
 
     }
     
-    static read(){
+    static read(table, codigo,callback,id ){
+        if(table === "cliente"){
+            bd.query("SELECT * FROM cliente WHERE codigo = ?", [codigo]).then((result) => {
+                callback(result)
+            })
+        }
+        else if(table === "produto"){
+            bd.query("SELECT * FROM produto WHERE codigo = ?", [codigo]).then((result) => {
+                callback(result)
+            })
+        }
 
     }
 
@@ -13,7 +23,16 @@ class DAO{
 
     }
 
-    static delete(){
-
+    static delete(table, codigo, callback){
+        if(table == "cliente"){
+            bd.query("DELETE FROM cliente WHERE codigo = ?", [codigo]).then((result) => {
+                callback(result)
+            })
+        }
+        else if(table == "produto"){
+            bd.query("DELETE FROM produto WHERE codigo = ?", [codigo]).then((result) => {
+                callback(result)
+            })
+        }
     }
 }
