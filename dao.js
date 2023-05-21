@@ -1,7 +1,7 @@
 const bd = require("./models/Database")
 
 class DAO{
-    static create(){
+    static create(produto, callback){
         const query = "INSERT INTO produtos SET ?";
         db.query(query, produto, (err, result) -> {
             if (err) throw err;
