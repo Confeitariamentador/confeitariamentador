@@ -3,7 +3,7 @@ const bd = require("./models/Database")
 class DAO{
     static create(table, value, callback){
         const query = "INSERT INTO ? SET ?";
-        db.query(query, [table, value], (err, result) -> {
+        db.query(query, [table, value], (err, result) => {
             if (err) throw err;
             callback(result);
         });
