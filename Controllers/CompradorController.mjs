@@ -1,4 +1,4 @@
-const Comprador = require('../models/Comprador');
+const Comprador = require('../model/Comprador');
 const CompradorDAO = require('../DAO/CompradorDAO');
 
 module.exports = class CompradorController{
