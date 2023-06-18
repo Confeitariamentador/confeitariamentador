@@ -1,4 +1,4 @@
-class Item{
+module.exports = class Item{
     constructor(id, nome, prazoValidade){
         this._id = id;
         this._nome = nome;
