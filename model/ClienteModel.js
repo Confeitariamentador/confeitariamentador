@@ -1,5 +1,6 @@
 const ClienteDAO = require("../DAO/ClienteDAO");
 const bcrypt = require("bcryptjs");
+const bd = require("../database/Database")
 
 class ClienteModel {
   constructor() {
