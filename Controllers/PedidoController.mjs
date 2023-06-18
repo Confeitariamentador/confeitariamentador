@@ -28,4 +28,9 @@ module.exports = class PedidoController{
         await PedidoDAO.delete(req.params.id);
         res.sendStatus(200);
     }
+    static async getHistoricoByCompradorId(req, res) {
+        let pedidos = await PedidoDAO.getByCompradorId(req.params.compradorId);
+        res.json(pedidos);
+    }
+    
 }

@@ -25,4 +25,9 @@ module.exports = class PedidoDAO{
     static async delete(id){
         let results = await db.query("DELETE FROM pedido WHERE id=?", [id]);
     }
+    static async getByCompradorId(compradorId) {
+        let results = await db.query("SELECT * FROM pedido WHERE id_usuario=?", [compradorId]);
+        return results;
+    }
+    
 }

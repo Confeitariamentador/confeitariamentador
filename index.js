@@ -3,9 +3,9 @@ const app = express()
 const path = require("path")
 const handlebars = require("express-handlebars")
 const bodyParser = require("body-parser")
-const login = require("./controller/LoginController");
-const cadastro = require("./controller/UserController")  // alteração aqui
-const loja = require("./controller/lojaController")
+const login = require("./Controllers/ItemController");
+const cadastro = require("./Controllers/CompradorController")  // alteração aqui
+const loja = require("./Controllers/PedidoController")
 const PORT = process.env.PORT || 8090
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -48,8 +48,9 @@ app.get("/", (req,res)=>{
     res.render("home")
 })
 
+router.get('/historico/:compradorId', PedidoController.getHistoricoByCompradorId);
 app.use("/loja", loja)
-
+    
 app.use("/login", login)
 
 app.use("/cadastro", cadastro) // o express vai utilizar a rota definida em UserController
