@@ -1,4 +1,4 @@
-const db = require('../models/Database')
+const db = require('../database/Database')
 
 module.exports = class ItemDAO{
     static async getById(id){
