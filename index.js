@@ -53,7 +53,7 @@ app.use("/loja", loja)
     
 app.use("/login", login)
 
-app.use("/cadastro", cadastro) // o express vai utilizar a rota definida em UserController
+app.use("/cadastro", cadastro)
 
 app.get("/logout", function(req, res) {
     res.cookie("token", "");
