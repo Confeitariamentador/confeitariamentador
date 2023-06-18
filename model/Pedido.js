@@ -1,4 +1,4 @@
-class Pedido{
+module.exports = class Pedido{
     constructor(id, comprador, itens, estado, dataPedido, dataEntrega, entregador){
         this._id = id;
         this._comprador = comprador;
