@@ -1,0 +1,26 @@
+{{#if error}}
+  <div class="alert alert-danger text-center mt-4" style="position: relative; top: -50%; width: 80%; margin-left: 10%;">
+    {{err_message}}
+  </div>
+{{/if}}
+
+
+<div class="position-absolute top-50 start-50 translate-middle" style="z-index:-1;">
+    <form method="post" class="card" style="width: 18rem; padding:5px; z-index:-1; background-color:rgb(248, 220, 246)">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" maxlength="50" required>
+        </div>
+        <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" maxlength="50" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox">
+            <label class="form-check-label" for="checkbox">Manter logado</label>
+        </div>
+        <button type="submit" class="btn btn-danger">Entrar</button>
+    </form>
+
+    <br>
+</div>

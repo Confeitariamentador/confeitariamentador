@@ -1,0 +1,108 @@
+<style>
+  .container {
+    background-color: rgb(248, 220, 246);
+    padding: 25px;
+    width: 50%;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .list-group {
+    margin-top: 30px;
+  }
+
+  .list-group-item {
+    background-color: rgb(248, 220, 246);
+    border: none;
+  }
+
+  .list-group-item-heading {
+    margin-bottom: 10px;
+  }
+
+  .list-group-item-heading,
+  #result {
+    text-align: center;
+  }
+
+  .list-group-item a {
+    display: block;
+    text-align: center;
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  .no-products {
+    text-align: center;
+    margin-top: 30px;
+    color: #dc3545;
+    font-weight: bold;
+  }
+</style>
+
+<div class="container">
+  <h2>Listagem dos Produtos para Exclusão</h2>
+  <form method="post" action="/loja/excluir-home">
+    <div class="form-group">
+      <label>Selecione quais categorias você deseja excluir:</label>
+      <select name="categoria" required>
+        <option value="Bolos">Bolos</option>
+        <option value="Mil Folhas">Mil Folhas</option>
+        <option value="Tortas">Tortas</option>
+        <option value="Paes">Pães</option>
+      </select>
+    </div>
+    <button type="submit">Listar</button>
+  </form>
+
+  {{#if produtos}}
+  <ul class="list-group">
+    {{#each produtos}}
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">{{nome}}</h4>
+      <h4 id="result">R$ {{{valorUnidade}}}</h4>
+      <a href="/loja/excluir-produto/{{codigo}}">Excluir</a>
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <div class="no-products">Sem produtos nesta categoria</div>
+  {{/if}}
+</div>
