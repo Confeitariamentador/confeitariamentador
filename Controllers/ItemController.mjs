@@ -1,4 +1,4 @@
-const Item = require('../models/Item');
+const Item = require('../model/Item');
 const ItemDAO = require('../DAO/ItemDAO');
 
 module.exports = class ItemController{
