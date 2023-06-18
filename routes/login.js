@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
       res.cookie("token", token);
     }
 
-    req.session.usuario = token ? null : consulta.id;
+    req.session.usuario = token
     res.redirect("/");
   } catch (ex) {
     res.render("login", { error: true, err_message: ex.message });

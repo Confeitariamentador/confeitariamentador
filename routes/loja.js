@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   const { email, senha } = req.body;
 
   try {
-    const query = `SELECT senha, id FROM clientes WHERE clientes.email = ?`;
+    const query = `SELECT senha, id FROM comprador WHERE comprador.email = ?`;
     const consulta = (await bd.query(query, [email]))[0];
 
     bcrypt.compare(senha, consulta.senha, (err, result) => {

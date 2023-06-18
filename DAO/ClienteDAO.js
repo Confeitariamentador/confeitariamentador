@@ -7,14 +7,14 @@ class ClienteDAO {
 
     let values = [nome, email, hashSenha, cpf, endereco, telefone];
     await bd.query(
-      "INSERT INTO clientes VALUES (default,?,?,?,?,?,?,default, default)",
+      "INSERT INTO comprador VALUES (default,?,?,?,?,?,?,default, default)",
       values
     );
   }
 
   async verificarEmail(email) {
     let resultado = await bd.query(
-      `SELECT * FROM clientes WHERE email = ?`,
+      `SELECT * FROM comprador WHERE email = ?`,
       email
     );
     return resultado.length > 0;

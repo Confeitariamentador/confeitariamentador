@@ -35,7 +35,7 @@ const bd = require("./database/Database")
 
 app.use("*", async function(req, res, next) {
     if (!req.session.usuario && req.cookies.token) {
-        const resultado = await bd.query("SELECT token FROM clientes WHERE token = ?", [req.cookies.token]);
+        const resultado = await bd.query("SELECT token FROM comprador WHERE token = ?", [req.cookies.token]);
         if (resultado.length) {
             req.session.usuario = resultado[0];
         }

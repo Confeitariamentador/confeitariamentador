@@ -30,7 +30,7 @@ class ClienteModel {
       throw new Error("Email Inválido");
     }
 
-    const query = `SELECT senha, id FROM clientes WHERE clientes.email = ?`;
+    const query = `SELECT senha, id FROM comprador WHERE comprador.email = ?`;
     const consulta = (await bd.query(query, [email]))[0];
 
     return new Promise((resolve, reject) => {
@@ -46,7 +46,7 @@ class ClienteModel {
 
   async gerarToken(id) {
     const token = uuidv4();
-    await bd.query("UPDATE clientes SET token = ? WHERE id = ?", [token, id]);
+    await bd.query("UPDATE comprador SET token = ? WHERE id = ?", [token, id]);
     return token;
   }
 }
