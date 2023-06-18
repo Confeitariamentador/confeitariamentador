@@ -1,4 +1,4 @@
-class Comprador{
+module.exports = class Comprador{
     constructor(id, nome, senha, email, historicoPedidos){
         this._id = id;
         this._nome = nome;
