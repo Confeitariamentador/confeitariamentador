@@ -3,13 +3,14 @@ const app = express()
 const path = require("path")
 const handlebars = require("express-handlebars")
 const bodyParser = require("body-parser")
-const login = require("./Controllers/ItemController");
-const cadastro = require("./Controllers/CompradorController")  // alteração aqui
-const loja = require("./Controllers/PedidoController")
+const login = require("./routes/login")
+const cadastro = require("./routes/cadastro")
+const loja = require("./routes/loja")
+const historico = require("./routes/historico")
 const PORT = process.env.PORT || 8090
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
-const bd = require("./models/Database")
+const bd = require("./database/Database")
 
 //configurações
 
@@ -48,22 +49,19 @@ app.get("/", (req,res)=>{
     res.render("home")
 })
 
-router.get('/historico/:compradorId', PedidoController.getHistoricoByCompradorId);
 app.use("/loja", loja)
-    
+
 app.use("/login", login)
 
 app.use("/cadastro", cadastro)
+
+app.use("/historico", historico)
 
 app.get("/logout", function(req, res) {
     res.cookie("token", "");
     req.session.destroy();
     res.redirect("/login");
 });
-
-app.get("/sobre", function(req, res){
-    res.render("sobre")
-})
 
 app.listen(PORT, () => {
     console.log(`Servidor ativo na porta: ${PORT}`);
