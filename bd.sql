@@ -20,7 +20,8 @@ CREATE TABLE produtos (
 	id 			INT AUTO_INCREMENT PRIMARY KEY,
     nome            VARCHAR(50),
      valor float,
-    prazo_validade 	DATE);
+    prazo_validade 	DATE,
+	categoria VARCHAR(50));
 
  
  CREATE TABLE pedido(
