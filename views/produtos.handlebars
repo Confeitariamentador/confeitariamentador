@@ -1,0 +1,63 @@
+<style>
+  .card {
+    background-color: rgb(248, 220, 246);
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .btn-comprar {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+    padding: 8px 20px;
+    font-size: 14px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-comprar:hover {
+    background-color: #c82333;
+  }
+</style>
+
+<h1 class="text-center">{{produto}}</h1>
+
+{{#if produtos}}
+  <div class="row justify-content-center">
+    {{#each produtos}}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">{{nome}}</h4>
+            <p class="card-text">R$ {{{valor}}}</p>
+            <a class="btn btn-comprar" href="/loja/confirmar-compra/{{id}}">Comprar</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <div class="text-center">Não há produtos disponíveis no momento.</div>
+{{/if}}

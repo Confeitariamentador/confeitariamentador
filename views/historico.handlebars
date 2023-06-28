@@ -1,0 +1,22 @@
+<style>
+  /* Estilos CSS aqui */
+</style>
+
+<div class="container">
+  <h2>Histórico de Compras</h2>
+
+  {{#if historicoCompras}}
+  <div class="list-group">
+    {{#each historicoCompras}}
+    <div class="card">
+      <h4 class="card-title">Compra {{@index}}</h4>
+      <ul>
+        <li>{{item}}</li>
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="no-purchases">Nenhuma compra registrada</div>
+  {{/if}}
+</div>
